@@ -89,7 +89,8 @@ ClienteServiceI ->> ClienteRepository: consultaTodos ( )
 ClienteRepository-->>APIClienteController: ArrayList[]
 ```
 >Referencias
-[1] KRUCHTEN, Philippe. Reference: Title: Architectural blueprints—the “4+ 1” view model of software architecture. IEEE software, v. 12, n. 6, 1995.
-[2] RICHARDSON, Chris. Microservices patterns: with examples in Java. Simon and Schuster, 2018.
-[3] ERL, Thomas. SOA principles of service design (the Prentice Hall service-oriented computing series from Thomas Erl). Prentice Hall PTR, 2007.
+
+>[1] KRUCHTEN, Philippe. Reference: Title: Architectural blueprints—the “4+ 1” view model of software architecture. IEEE software, v. 12, n. 6, 1995.
+>[2] RICHARDSON, Chris. Microservices patterns: with examples in Java. Simon and Schuster, 2018.
+>[3] ERL, Thomas. SOA principles of service design (the Prentice Hall service-oriented computing series from Thomas Erl). Prentice Hall PTR, 2007.
 
