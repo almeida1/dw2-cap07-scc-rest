@@ -65,3 +65,31 @@ Os serviços foram classificados em três tipos (ERL, 2007): **1. Serviços util
 
 ![](diagrama1.jpg)
 
+>Um exemplo de serviço de entidade no projeto SIG é a manutenção dos clientes que adquirem produtos da empresa. Em seguida as operações para atender os requisitos do CRUD de Cliente devem ser especificadas.
+
+```mermaid
+classDiagram
+    class ClienteServicoI
+    <<interface>> ClienteServicoI
+    
+    ClienteServicoI : +List<Cliente> consultaTodos()
+    ClienteServicoI : +Optional<<Cliente>> consultaPorCpf(String cpf)
+    ClienteServicoI : +Optional<<Cliente>> consultaPorId(Long id)
+    ClienteServicoI : +Optional<<Cliente>> save(Cliente c)
+    ClienteServicoI : +void delete (Long id)
+    ClienteServicoI : +Optional<<Cliente>> altera (Cliente c)
+
+
+```
+>Design dos endpoints 
+```mermaid
+sequenceDiagram 
+APIClienteController ->> ClienteServiceI: GET /api/v1/clientes
+ClienteServiceI ->> ClienteRepository: consultaTodos ( )
+ClienteRepository-->>APIClienteController: ArrayList[]
+```
+>Referencias
+[1] KRUCHTEN, Philippe. Reference: Title: Architectural blueprints—the “4+ 1” view model of software architecture. IEEE software, v. 12, n. 6, 1995.
+[2] RICHARDSON, Chris. Microservices patterns: with examples in Java. Simon and Schuster, 2018.
+[3] ERL, Thomas. SOA principles of service design (the Prentice Hall service-oriented computing series from Thomas Erl). Prentice Hall PTR, 2007.
+
