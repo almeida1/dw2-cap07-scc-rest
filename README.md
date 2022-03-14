@@ -35,4 +35,8 @@ A(Análise de Requisitos) --> B(Projeto) --> C(Codificação) --> D(Teste)
 | REQ01CT02 | Dado (setup) que o CPF do cliente está cadastrado; Quando (ação) o usuário confirma o cadastro; Então (resultado esperado) o sistema rejeita e envia uma mensagem de dados inválidos |
 
 ### Projeto
+```sequence
+ClienteService -> ClienteRepository: teste
+
+
 
