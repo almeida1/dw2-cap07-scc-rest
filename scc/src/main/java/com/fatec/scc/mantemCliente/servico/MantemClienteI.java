@@ -37,15 +37,16 @@ public class MantemClienteI implements MantemCliente {
 		logger.info(">>>>>> servico save chamado ");
 		Optional<Cliente> umCliente =consultaPorCpf(cliente.getCpf());
 		Endereco endereco = obtemEndereco(cliente.getCep());
-		logger.info(">>>>>> save obtem endereco = " + endereco.getLogradouro());
+		
 		if (umCliente.isEmpty() & endereco != null) {
 			logger.info(">>>>>> controller create - dados validos");
 			cliente.obtemDataAtual(new DateTime());
 			cliente.setEndereco(endereco.getLogradouro());
 			return repository.save(cliente);
 		} else {
+			logger.info(">>>>>> servico mantem cliente save - cpf ja cadastrado ou endereço invalido");
 			return null;
-
+            
 		}
 	}
 	@Override
@@ -87,10 +88,10 @@ public class MantemClienteI implements MantemCliente {
 			resposta = template.getForEntity(url, Endereco.class, cep);
 			return resposta.getBody();
 		} catch (ResourceAccessException e) {
-			logger.info(">>>>>> consulta CEP erro nao esperado ");
+			logger.info(">>>>>> servico obtem endereco -  erro nao esperado ");
 			return null;
 		} catch (HttpClientErrorException e) {
-			logger.info(">>>>>> consulta CEP inválido erro HttpClientErrorException =>" + e.getMessage());
+			logger.info(">>>>>> servico obtem endereco consulta CEP inválido erro HttpClientErrorException" );
 			return null;
 		}
 	}

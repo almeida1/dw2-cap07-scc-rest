@@ -46,7 +46,7 @@ public class APIMantemClienteController {
 				response = ResponseEntity.status(HttpStatus.CREATED).body(umCliente);
 			} else {
 				response = ResponseEntity.badRequest().body("Cliente já cadastrado ou CEP inválido");
-				logger.info(">>>>>> controller create - cadastro realizado com sucesso");
+				logger.info(">>>>>> controller create - cliente já cadastrado ou CEP inválido");
 			}
 		}
 		return response;
